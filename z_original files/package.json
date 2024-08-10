@@ -1,7 +1,7 @@
 {
-  "name": "tech-blog",
+  "name": "crowd-funding",
   "version": "1.0.0",
-  "description": "tech-blog",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "seed": "node seeds/seed.js"
   },
   "keywords": [],
-  "author": "Kim Desveaux",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
