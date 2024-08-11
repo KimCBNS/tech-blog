@@ -1,16 +1,61 @@
 <div class="text-center">
-  <h1>made it to the page</h1>
-  
+  <h1>Tech Blog</h1>
+ 
+     
   <h2>{{title}}</h2>
 
   <p>{{contents}}</p>
+
+  {{!-- get the user id of the person that wrote the blog not the user that is logged in --}}
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-<input type="hidden" value={{id}} id="blogid">
- {{!-- (wont show but you can query select) get the value of the content and the blogid --}}
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
 </div>
 
 
 
+{{!-- this section prints the existing comments --}}
+<div>
+  {{#if comments.length}}
+  <div class="col-md-6 comments-list">
+    <h3>Comments:</h3>
+
+    {{#each comments}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h5>{{comments}}</h5>
+        <p>Comment made by: {{user.name}}</p>
+        <br>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+
+
+    <form class="form new-comment">
+
+      {{!-- this is the info for the new comment need to get the user id of the post (wont show but you can query
+      select--}}
+      <input type="hidden" value={{id}} id="blogid">
+      <input type="hidden" value={{currentUser.id}} id="userid">
+    
+      <div class="form-group">
+        <label for="comments">Comment:</label>
+        <input class="form-input" type="text" id="comments" name="comments" />
+      </div>
+
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary comments">enter comment</button>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+
+
+<script src="/js/comment.js"></script>
